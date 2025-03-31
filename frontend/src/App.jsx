@@ -91,7 +91,7 @@ const App = () => {
 
   return (
 
-    <div>
+    <div data-theme="light">
        <Navbar />
        <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />

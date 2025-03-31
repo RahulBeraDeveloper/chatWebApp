@@ -95,7 +95,7 @@ export const login = async (req, res) => {
       if (!profilePic) {
         return res.status(400).json({ message: "Profile pic is required" });
       }
-  
+    
       const uploadResponse = await cloudinary.uploader.upload(profilePic);
       // return console.log("upload response", uploadResponse);
       console.log("upload response", uploadResponse);
