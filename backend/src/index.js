@@ -4,6 +4,7 @@ import messageRoutes from './routes/message.route.js';
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/db.js";
+import { app, server } from "./lib/socket.js";
 import cors from "cors";
 
 
@@ -15,7 +16,7 @@ console.log("CLOUDINARY_CLOUD_NAME:", process.env.CLOUDINARY_CLOUD_NAME);
 console.log("CLOUDINARY_API_KEY:", process.env.CLOUDINARY_API_KEY);
 console.log("CLOUDINARY_API_SECRET:", process.env.CLOUDINARY_API_KEY_SECRET ? "Loaded" : "Missing");
 
-const app = express();
+// const app = express();
 
 
 const PORT = process.env.PORT || 5001;
@@ -29,10 +30,10 @@ app.use(cors({
   
 ));
 app.use("/api/auth", authRoutes);
-app.use("/api/message", messageRoutes);
+app.use("/api/messages", messageRoutes);
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log("Server is running on port :- " + PORT);
   connectDB();
 });
