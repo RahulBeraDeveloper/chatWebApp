@@ -26,7 +26,7 @@ const __dirname = path.resolve();
 app.use(cookieParser());
 app.use(express.json()); //It helps to parse the incoming request with JSON payloads
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://charwebapplication.onrender.com",
   credentials: true
 }
   
